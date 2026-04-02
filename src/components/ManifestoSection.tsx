@@ -45,7 +45,7 @@ export default function ManifestoSection() {
       <div className="sticky top-0 h-screen flex items-start md:items-center justify-center px-4 md:px-16 pt-12 md:pt-0">
         <p
           className="font-display w-full md:max-w-[820px] leading-[1.2] md:leading-[1.15] tracking-[-0.02em] flex flex-wrap gap-x-[0.22em] md:gap-x-[0.28em] gap-y-0 md:gap-y-2 text-left"
-          style={{ fontSize: 'clamp(1.15rem, 3.5vw, 3.8rem)' }}
+          style={{ fontSize: 'clamp(1.55rem, 3.5vw, 3.8rem)' }}
         >
           {words.map((word, i) => {
             const start = (i / N) * 0.85
