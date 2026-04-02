@@ -95,6 +95,14 @@ body {
   transform-origin: top center;
 }
 
+/* ── Manifesto Mobile Override ──────────────────────── */
+@media (max-width: 768px) {
+  .manifesto-text {
+    font-size: 2.1rem !important;
+    line-height: 1.25 !important;
+  }
+}
+
 /* Fallback background for write-to-us section when video is absent */
 #write-to-us {
   background: #050505;
