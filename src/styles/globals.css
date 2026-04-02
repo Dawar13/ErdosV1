@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ── Liquid Glass Utility ──────────────────────────────── */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.06) 40%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Fade Rise Animation ───────────────────────────────── */
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-rise {
+  animation: fade-rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-fade-rise-d1 {
+  animation: fade-rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+.animate-fade-rise-d2 {
+  animation: fade-rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+/* ── Scroll hint pulse ─────────────────────────────────── */
+@keyframes scroll-pulse {
+  0%, 100% { opacity: 0.2; transform: scaleY(1); }
+  50%       { opacity: 0.6; transform: scaleY(1.3); }
+}
+
+.scroll-hint-line {
+  width: 1px;
+  height: 48px;
+  background: white;
+  animation: scroll-pulse 2.2s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* Fallback background for write-to-us section when video is absent */
+#write-to-us {
+  background: #050505;
+}
