@@ -18,7 +18,7 @@ export default function Navbar() {
       >
         Erdős
       </a>
-      <div className="flex gap-10">
+      <div className="hidden md:flex gap-10">
         {['Research', 'Papers', 'Write to Us'].map((link) => (
           <a
             key={link}

@@ -89,3 +89,18 @@ body {
 #write-to-us {
   background: #050505;
 }
+
+/* ── Logo Carousel ─────────────────────────────────── */
+@keyframes carousel-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.carousel-track {
+  animation: carousel-scroll 28s linear infinite;
+  width: max-content;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}

@@ -14,15 +14,9 @@ function PaperCard({ paper }: { paper: typeof papers[0] }) {
       <h3 className="font-display text-xl text-white leading-[1.2] mb-5">
         {paper.title}
       </h3>
-      <p className="font-body font-light text-sm text-white/55 leading-relaxed mb-6">
+      <p className="font-body font-light text-sm text-white/55 leading-relaxed">
         {paper.abstract}
       </p>
-      <button
-        onClick={() => window.open(paper.url, '_blank')}
-        className="font-accent text-[9px] tracking-[0.28em] uppercase text-white/40 hover:text-white/80 transition-colors duration-300 flex items-center gap-2 self-start mt-auto"
-      >
-        Read Paper <span>→</span>
-      </button>
     </div>
   )
 }
@@ -33,7 +27,7 @@ export default function WorkSoFarSection() {
   const { scrollYProgress } = useScroll({ target: sectionRef })
 
   // Measure one card step (card width + gap) so the math adapts to actual layout.
-  const [step, setStep] = useState(444) // fallback: 420px card + 24px gap
+  const [step, setStep] = useState(356) // fallback: 340px card + 16px gap
   useEffect(() => {
     const row = rowRef.current
     if (!row || row.children.length < 2) return
@@ -51,8 +45,8 @@ export default function WorkSoFarSection() {
   }, [])
 
   // With justify-center on the parent, card 2 (middle) is at viewport center.
-  // Shift right by +step → card 1 centered.
-  // Shift left  by -step → card 3 centered.
+  // Shift right by +step -> card 1 centered.
+  // Shift left  by -step -> card 3 centered.
   const x = useTransform(scrollYProgress, [0, 1], [step, -step])
 
   return (
@@ -79,11 +73,11 @@ export default function WorkSoFarSection() {
             Our Work So Far
           </h2>
 
-          {/* Card row — flex-centered puts card 2 at middle, motion x offsets to card 1→3 */}
+          {/* Horizontally scrolling card row */}
           <div className="flex justify-center w-full">
             <m.div
               ref={rowRef}
-              className="flex flex-row gap-6 items-stretch"
+              className="flex flex-row gap-4 items-stretch"
               style={{ x, willChange: 'transform' }}
             >
               {papers.map((paper) => (

@@ -1,3 +1,5 @@
+import LogoCarousel from './LogoCarousel'
+
 export default function HeroSection() {
   return (
     <section className="relative h-screen overflow-hidden">
@@ -29,6 +31,7 @@ export default function HeroSection() {
         </p>
       </div>
 
+      <LogoCarousel />
     </section>
   )
 }
