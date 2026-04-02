@@ -1,13 +1,13 @@
 const logos = [
-  { src: '/images/logos/1.png', alt: 'Partner 1' },
-  { src: '/images/logos/2.png', alt: 'Partner 2' },
-  { src: '/images/logos/3.png', alt: 'Partner 3' },
-  { src: '/images/logos/4.png', alt: 'Partner 4' },
-  { src: '/images/logos/5.png', alt: 'Partner 5' },
-  { src: '/images/logos/6.png', alt: 'Partner 6' },
-  { src: '/images/logos/7.png', alt: 'Partner 7' },
-  { src: '/images/logos/8.png', alt: 'Partner 8' },
-  { src: '/images/logos/9.png', alt: 'Partner 9' },
+  { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/1.png', alt: 'Partner 1' },
+  { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/2.png', alt: 'Partner 2' },
+  { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/3.png', alt: 'Partner 3' },
+  { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/4.png', alt: 'Partner 4' },
+  { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/5.png', alt: 'Partner 5' },
+  { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/6.png', alt: 'Partner 6' },
+  { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/7.png', alt: 'Partner 7' },
+  { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/8.png', alt: 'Partner 8' },
+  { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/9.png', alt: 'Partner 9' },
 ]
 
 // Duplicate for seamless infinite loop
