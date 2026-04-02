@@ -26,7 +26,7 @@ function ApplyModal({ onClose }: { onClose: () => void }) {
       {/* Video background */}
       <video
         ref={videoRef}
-        src="/videos/write-to-us.mp4"
+        src="https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Write+to+us.mp4"
         loop
         muted
         playsInline
@@ -111,7 +111,7 @@ export default function WriteToUsSection() {
       >
         <video
           ref={videoRef}
-          src="/videos/write-to-us.mp4"
+          src="https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Write+to+us.mp4"
           loop
           muted
           playsInline

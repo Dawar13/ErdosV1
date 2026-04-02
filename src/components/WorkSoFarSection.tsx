@@ -65,7 +65,7 @@ export default function WorkSoFarSection() {
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
         {/* Full bleed image */}
         <img
-          src="/images/work-so-far.jpg"
+          src="https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Our+work.png"
           alt="Erdős AI Lab"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
         />

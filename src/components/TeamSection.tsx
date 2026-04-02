@@ -6,21 +6,21 @@ const team = [
     name: 'Dawar J Deka',
     role: 'Founder, Erdős AI Lab',
     affiliation: 'IIT Bombay - Aerospace & Control Systems',
-    image: '/images/team/dawar.jpg',
+    image: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Dawar.png',
   },
   {
     id: '02',
     name: 'Dhruv Agarwal',
     role: 'A.I. Researcher',
     affiliation: 'Ex Google · Ex Visa',
-    image: '/images/team/dhruv.jpg',
+    image: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Dhruv.png',
   },
   {
     id: '03',
     name: 'Nilesh Sarkar',
     role: 'LLM Researcher',
     affiliation: 'AI @ Moog Inc',
-    image: '/images/team/nilesh.jpg',
+    image: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Nilesh.png',
   },
 ]
 

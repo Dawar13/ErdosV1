@@ -2,7 +2,7 @@ export default function HeroSection() {
   return (
     <section className="relative h-screen overflow-hidden">
       <video
-        src="/videos/hero.mp4"
+        src="https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/hero+section+video.mp4"
         autoPlay
         loop
         muted

@@ -5,7 +5,7 @@ export default function Footer() {
       {/* Image + quote block */}
       <div className="relative w-full overflow-hidden" style={{ height: '55vh' }}>
         <img
-          src="/images/footer.jpg"
+          src="https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/footer.jpg"
           alt=""
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
