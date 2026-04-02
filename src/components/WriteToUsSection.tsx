@@ -1,11 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { m, AnimatePresence } from 'framer-motion'
 import { useInViewVideo } from '../hooks/useInViewVideo'
 
 const WRITE_VIDEO_URL = 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Write+to+us.mp4'
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzIGa30w1mf8LHAW5U2swihSTZq_cT7ohVT3y526GDYD_x6x_2fRPDxLEtoNxdU7DEw/exec'
 
 function ApplyModal({ onClose }: { onClose: () => void }) {
   const { ref: videoRef } = useInViewVideo()
+  const formRef = useRef<HTMLFormElement>(null)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
@@ -16,6 +20,38 @@ function ApplyModal({ onClose }: { onClose: () => void }) {
       window.removeEventListener('keydown', onKey)
     }
   }, [onClose])
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!formRef.current || submitting) return
+
+    const fd = new FormData(formRef.current)
+    const payload = {
+      name: fd.get('name') as string,
+      education: fd.get('education') as string,
+      background: fd.get('background') as string,
+      researchInterests: fd.get('researchInterests') as string,
+      previousWork: fd.get('previousWork') as string,
+      whyBelong: fd.get('whyBelong') as string,
+    }
+
+    if (Object.values(payload).some((v) => !v?.trim())) return
+
+    setSubmitting(true)
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      setSubmitted(true)
+    } catch {
+      alert('Something went wrong. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   return (
     <m.div
@@ -56,45 +92,67 @@ function ApplyModal({ onClose }: { onClose: () => void }) {
             Apply to Erdős AI Labs
           </h2>
 
-          <form className="flex flex-col gap-14" onSubmit={(e) => e.preventDefault()}>
-            {[
-              { label: 'Name', placeholder: 'Your full name', type: 'input' },
-              { label: 'Education', placeholder: 'Degree, institution, year', type: 'input' },
-              { label: 'Background', placeholder: "Where you're coming from", type: 'textarea' },
-              { label: 'Research Interests', placeholder: 'What obsesses you', type: 'textarea' },
-              { label: 'Previous Work', placeholder: 'Papers, projects, anything relevant', type: 'textarea' },
-              { label: 'Why you belong here', placeholder: 'Make us believe it', type: 'textarea', rows: 4 },
-            ].map(({ label, placeholder, type, rows = 3 }) => (
-              <div key={label}>
-                <label className="text-[12px] tracking-[0.28em] uppercase text-white/75 font-semibold block mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                  {label}
-                </label>
-                {type === 'input' ? (
-                  <input
-                    type="text"
-                    placeholder={placeholder}
-                    className="w-full bg-transparent border-0 border-b border-white/12 text-white placeholder-white/15 pb-3 outline-none focus:border-white/30 transition-colors duration-300"
-                    style={{ fontFamily: "'Instrument Serif', serif", fontSize: 'clamp(1.3rem, 2.2vw, 1.9rem)' }}
-                  />
-                ) : (
-                  <textarea
-                    rows={rows}
-                    placeholder={placeholder}
-                    className="w-full bg-transparent border-0 border-b border-white/12 text-white placeholder-white/15 pb-3 outline-none resize-none focus:border-white/30 transition-colors duration-300"
-                    style={{ fontFamily: "'Instrument Serif', serif", fontSize: 'clamp(1.3rem, 2.2vw, 1.9rem)' }}
-                  />
-                )}
-              </div>
-            ))}
+          {submitted ? (
+            <div className="flex flex-col items-center justify-center gap-6 py-20">
+              <p className="font-display text-2xl text-white tracking-[-0.02em]">
+                Application received.
+              </p>
+              <p className="font-body font-light text-sm text-white/50 leading-relaxed text-center max-w-[360px]">
+                Thank you for your interest in Erdős AI Lab. We will review your application and get back to you.
+              </p>
+              <button
+                onClick={onClose}
+                className="mt-8 font-accent text-[9px] tracking-[0.28em] uppercase text-white/40 hover:text-white/80 transition-colors duration-300"
+              >
+                Close
+              </button>
+            </div>
+          ) : (
+            <form ref={formRef} className="flex flex-col gap-14" onSubmit={handleSubmit}>
+              {[
+                { label: 'Name', name: 'name', placeholder: 'Your full name', type: 'input' },
+                { label: 'Education', name: 'education', placeholder: 'Degree, institution, year', type: 'input' },
+                { label: 'Background', name: 'background', placeholder: "Where you're coming from", type: 'textarea' },
+                { label: 'Research Interests', name: 'researchInterests', placeholder: 'What obsesses you', type: 'textarea' },
+                { label: 'Previous Work', name: 'previousWork', placeholder: 'Papers, projects, anything relevant', type: 'textarea' },
+                { label: 'Why you belong here', name: 'whyBelong', placeholder: 'Make us believe it', type: 'textarea', rows: 4 },
+              ].map(({ label, name, placeholder, type, rows = 3 }) => (
+                <div key={name}>
+                  <label className="text-[12px] tracking-[0.28em] uppercase text-white/75 font-semibold block mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>
+                    {label}
+                  </label>
+                  {type === 'input' ? (
+                    <input
+                      type="text"
+                      name={name}
+                      required
+                      placeholder={placeholder}
+                      className="w-full bg-transparent border-0 border-b border-white/12 text-white placeholder-white/15 pb-3 outline-none focus:border-white/30 transition-colors duration-300"
+                      style={{ fontFamily: "'Instrument Serif', serif", fontSize: 'clamp(1.3rem, 2.2vw, 1.9rem)' }}
+                    />
+                  ) : (
+                    <textarea
+                      rows={rows}
+                      name={name}
+                      required
+                      placeholder={placeholder}
+                      className="w-full bg-transparent border-0 border-b border-white/12 text-white placeholder-white/15 pb-3 outline-none resize-none focus:border-white/30 transition-colors duration-300"
+                      style={{ fontFamily: "'Instrument Serif', serif", fontSize: 'clamp(1.3rem, 2.2vw, 1.9rem)' }}
+                    />
+                  )}
+                </div>
+              ))}
 
-            <button
-              type="submit"
-              className="w-full bg-white text-black font-accent text-[10px] tracking-[0.3em] uppercase py-5 hover:bg-white/88 transition-colors duration-200"
-              style={{ borderRadius: 0 }}
-            >
-              Apply
-            </button>
-          </form>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="w-full bg-white text-black font-accent text-[10px] tracking-[0.3em] uppercase py-5 hover:bg-white/88 transition-colors duration-200 disabled:opacity-50"
+                style={{ borderRadius: 0 }}
+              >
+                {submitting ? 'Submitting...' : 'Apply'}
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </m.div>
