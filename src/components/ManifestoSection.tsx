@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { m, useScroll, useTransform, useMotionValueEvent, MotionValue } from 'framer-motion'
 
 const PARAGRAPH =
-  "We exist at the intersection of rigorous mathematics and unbounded curiosity. Erdős AI Lab is a collective of young researchers devoted to advancing the frontier of artificial intelligence - from continual learning and world models to brain-computer interfaces and neuromorphic computing. We believe the next decade of AI will not be won by scale alone, but by ideas. Sharp, original, uncompromising ideas. That is what Erdős was built for."
+  "We exist at the intersection of rigorous mathematics and unbounded curiosity. Erdős AI Lab is a collective of young researchers devoted to advancing the frontier of artificial intelligence - from continual learning and world models to brain-computer interfaces and neuromorphic computing. We believe the next decade of AI will not be won by scale alone, but by ideas. Sharp, original, uncompromising ideas. That is what Erdős is built for."
 
 interface AnimatedWordProps {
   word: string
