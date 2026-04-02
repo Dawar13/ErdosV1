@@ -36,8 +36,8 @@ export default function Footer() {
           <span className="font-display text-base md:text-lg text-white/60 tracking-tight">
             Erdős
           </span>
-          <span className="font-accent text-[8px] md:text-[9px] tracking-[0.18em] uppercase text-white/50 font-bold">
-            © 2025 Erdős AI Lab. All rights reserved.
+          <span className="font-accent text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-white/70 font-bold">
+            © 2026 Erdős AI Lab. All rights reserved.
           </span>
         </div>
       </div>
