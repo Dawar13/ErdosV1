@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react'
 import { m, AnimatePresence } from 'framer-motion'
 import { useInViewVideo } from '../hooks/useInViewVideo'
 
+const WRITE_VIDEO_URL = 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Write+to+us.mp4'
+
 function ApplyModal({ onClose }: { onClose: () => void }) {
-  const videoRef = useInViewVideo()
+  const { ref: videoRef } = useInViewVideo()
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
@@ -26,7 +28,7 @@ function ApplyModal({ onClose }: { onClose: () => void }) {
       {/* Video background */}
       <video
         ref={videoRef}
-        src="https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Write+to+us.mp4"
+        src={WRITE_VIDEO_URL}
         loop
         muted
         playsInline
@@ -100,7 +102,7 @@ function ApplyModal({ onClose }: { onClose: () => void }) {
 }
 
 export default function WriteToUsSection() {
-  const videoRef = useInViewVideo()
+  const { ref: videoRef } = useInViewVideo(WRITE_VIDEO_URL)
   const [modalOpen, setModalOpen] = useState(false)
 
   return (
@@ -109,9 +111,9 @@ export default function WriteToUsSection() {
         className="relative h-screen overflow-hidden"
         id="write-to-us"
       >
+        {/* Video loads lazily only when section is near viewport */}
         <video
           ref={videoRef}
-          src="https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Write+to+us.mp4"
           loop
           muted
           playsInline

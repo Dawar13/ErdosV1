@@ -67,10 +67,10 @@ export default function TeamSection() {
             <h3 className="font-display font-normal text-black tracking-[-0.02em] leading-[1.1] text-xl">
               {member.name}
             </h3>
-            <p className="font-accent text-[10px] tracking-[0.2em] uppercase text-black/60 font-bold mt-1">
+            <p className="text-[10px] tracking-[0.2em] uppercase text-black/60 font-bold mt-1" style={{ fontFamily: "'Poppins', sans-serif" }}>
               {member.role}
             </p>
-            <p className="font-body font-semibold text-sm text-black/50 mt-0.5">
+            <p className="font-semibold text-sm text-black/50 mt-0.5" style={{ fontFamily: "'Poppins', sans-serif" }}>
               {member.affiliation}
             </p>
           </div>

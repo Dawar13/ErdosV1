@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react'
 
+const NAV_LINKS = [
+  { label: 'Research', href: '#research' },
+  { label: 'Papers', href: '#papers' },
+  { label: 'Write to Us', href: '#write-to-us' },
+]
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
@@ -19,13 +25,13 @@ export default function Navbar() {
         Erdős
       </a>
       <div className="hidden md:flex gap-10">
-        {['Research', 'Papers', 'Write to Us'].map((link) => (
+        {NAV_LINKS.map((link) => (
           <a
-            key={link}
-            href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
+            key={link.label}
+            href={link.href}
             className="font-accent text-[10px] tracking-[0.28em] uppercase font-semibold text-white/60 hover:text-white/90 transition-colors duration-300"
           >
-            {link}
+            {link.label}
           </a>
         ))}
       </div>

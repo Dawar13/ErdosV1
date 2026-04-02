@@ -6,7 +6,7 @@ function PaperCard({ paper }: { paper: typeof papers[0] }) {
   return (
     <div
       className="liquid-glass rounded-2xl flex flex-col shrink-0"
-      style={{ width: 'min(420px, 85vw)', padding: '2.5rem' }}
+      style={{ width: 'min(420px, 85vw)', padding: '2rem 2.5rem' }}
     >
       <p className="font-accent text-[9px] tracking-[0.3em] uppercase text-white/25 mb-5">
         0{paper.id}
@@ -54,7 +54,7 @@ export default function WorkSoFarSection() {
       ref={sectionRef}
       className="relative bg-[#0a0a0a]"
       style={{ height: '300vh' }}
-      id="research"
+      id="papers"
     >
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
         {/* Full bleed image */}
@@ -65,7 +65,7 @@ export default function WorkSoFarSection() {
         />
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 gap-10">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 gap-10 pb-16">
           <h2
             className="font-display font-normal text-white tracking-[-0.04em] leading-none text-center"
             style={{ fontSize: 'clamp(2.2rem, 5vw, 5.5rem)' }}
