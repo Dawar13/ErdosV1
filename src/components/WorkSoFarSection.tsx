@@ -65,10 +65,10 @@ export default function WorkSoFarSection() {
         />
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 gap-10 pb-16">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 gap-6 md:gap-10 pb-16 pt-20 md:pt-0">
           <h2
             className="font-display font-normal text-white tracking-[-0.04em] leading-none text-center"
-            style={{ fontSize: 'clamp(2.2rem, 5vw, 5.5rem)' }}
+            style={{ fontSize: 'clamp(1.8rem, 5vw, 5.5rem)' }}
           >
             Our Work So Far
           </h2>

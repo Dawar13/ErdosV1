@@ -23,24 +23,15 @@ export default function LogoCarousel() {
 
       {/* Carousel track */}
       <div className="relative w-full overflow-hidden">
-        {/* Left fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.6), transparent)' }}
-        />
-        {/* Right fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(to left, rgba(0,0,0,0.6), transparent)' }}
-        />
-
         {/* Scrolling row */}
         <div className="flex items-center gap-16 carousel-track">
           {doubled.map((logo, i) => (
-            <div key={i} className="flex-shrink-0 flex items-center justify-center" style={{ height: '78px' }}>
+            <div key={i} className="flex-shrink-0 flex items-center justify-center" style={{ height: '86px' }}>
               <img
                 src={logo.src}
                 alt={logo.alt}
                 className="max-h-full w-auto object-contain transition-all duration-400 grayscale hover:grayscale-0"
-                style={{ maxWidth: '234px' }}
+                style={{ maxWidth: '257px' }}
               />
             </div>
           ))}
