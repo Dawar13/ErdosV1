@@ -15,10 +15,10 @@ const doubled = [...logos, ...logos]
 
 export default function LogoCarousel() {
   return (
-    <div className="absolute bottom-10 left-0 right-0 flex flex-col items-center gap-4 z-10">
+    <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center gap-0 z-10 pb-0">
 
       {/* Backed by — static logos */}
-      <div className="flex flex-col items-center gap-2 mb-2">
+      <div className="flex flex-col items-center gap-1 mb-3">
         <p className="font-display text-[10px] tracking-[0.3em] uppercase text-white/80 font-bold">
           Backed by
         </p>
@@ -42,7 +42,7 @@ export default function LogoCarousel() {
       </div>
 
       {/* In collaboration with label */}
-      <p className="font-display text-[10px] tracking-[0.3em] uppercase text-white/80 font-bold">
+      <p className="font-display text-[10px] tracking-[0.3em] uppercase text-white/80 font-bold mt-1">
         In collaboration with
       </p>
 
