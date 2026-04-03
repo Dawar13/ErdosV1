@@ -16,7 +16,32 @@ const doubled = [...logos, ...logos]
 export default function LogoCarousel() {
   return (
     <div className="absolute bottom-10 left-0 right-0 flex flex-col items-center gap-4 z-10">
-      {/* Label */}
+
+      {/* Backed by — static logos */}
+      <div className="flex flex-col items-center gap-2 mb-2">
+        <p className="font-display text-[8px] tracking-[0.3em] uppercase text-white/50">
+          Backed by
+        </p>
+        <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2">
+            <img
+              src="https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/EF%20logo.png"
+              alt="EF"
+              className="h-[28px] w-auto object-contain"
+            />
+          </div>
+          <div className="flex items-center gap-2">
+            <img
+              src="https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Google%20logo.png"
+              alt="Google Research"
+              className="h-[28px] w-auto object-contain"
+            />
+            <span className="font-body text-[11px] text-white/70 font-medium tracking-wide">Research</span>
+          </div>
+        </div>
+      </div>
+
+      {/* In collaboration with label */}
       <p className="font-display text-[10px] tracking-[0.3em] uppercase text-white/80 font-bold">
         In collaboration with
       </p>
