@@ -19,7 +19,7 @@ export default function LogoCarousel() {
 
       {/* Backed by — static logos */}
       <div className="flex flex-col items-center gap-2 mb-2">
-        <p className="font-display text-[8px] tracking-[0.3em] uppercase text-white/50">
+        <p className="font-display text-[10px] tracking-[0.3em] uppercase text-white/80 font-bold">
           Backed by
         </p>
         <div className="flex items-center gap-6">
