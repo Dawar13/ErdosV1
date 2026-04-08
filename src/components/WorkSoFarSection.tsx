@@ -14,9 +14,42 @@ function PaperCard({ paper }: { paper: typeof papers[0] }) {
       <h3 className="font-display text-xl text-white leading-[1.2] mb-5">
         {paper.title}
       </h3>
-      <p className="font-body font-light text-sm text-white/55 leading-relaxed">
-        {paper.abstract}
-      </p>
+      <div className="relative overflow-hidden" style={{ maxHeight: '130px' }}>
+        <p className="font-body font-light text-sm text-white/55 leading-relaxed">
+          {paper.abstract}
+        </p>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.95) 100%)',
+          }}
+        />
+      </div>
+
+      {/* Read More CTA */}
+      <button
+        onClick={() => window.open(paper.url, '_blank', 'noopener,noreferrer')}
+        className="mt-8 w-full bg-white text-black font-accent text-[9px] tracking-[0.28em] uppercase py-3 hover:bg-white/85 active:bg-white/70 transition-colors duration-200 flex items-center justify-center gap-2"
+        style={{ borderRadius: 0 }}
+      >
+        Read Paper
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 6h8M6 2l4 4-4 4"
+            stroke="currentColor"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
     </div>
   )
 }
