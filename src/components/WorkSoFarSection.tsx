@@ -14,7 +14,7 @@ function PaperCard({ paper }: { paper: typeof papers[0] }) {
       <h3 className="font-display text-xl text-white leading-[1.2] mb-5">
         {paper.title}
       </h3>
-      <p className="font-body font-light text-sm text-white/55 leading-relaxed line-clamp-3 flex-1">
+      <p className="font-body font-light text-sm text-white/55 leading-relaxed line-clamp-6 flex-1">
         {paper.abstract}
       </p>
 
