@@ -14,18 +14,9 @@ function PaperCard({ paper }: { paper: typeof papers[0] }) {
       <h3 className="font-display text-xl text-white leading-[1.2] mb-5">
         {paper.title}
       </h3>
-      <div className="relative overflow-hidden" style={{ maxHeight: '130px' }}>
-        <p className="font-body font-light text-sm text-white/55 leading-relaxed">
-          {paper.abstract}
-        </p>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.95) 100%)',
-          }}
-        />
-      </div>
+      <p className="font-body font-light text-sm text-white/55 leading-relaxed">
+        {paper.abstract}
+      </p>
 
       {/* Read More CTA */}
       <button
