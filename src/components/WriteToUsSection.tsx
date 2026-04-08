@@ -39,11 +39,12 @@ function ApplyModal({ onClose }: { onClose: () => void }) {
 
     setSubmitting(true)
     try {
+      const params = new URLSearchParams(payload)
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString(),
       })
       setSubmitted(true)
     } catch {

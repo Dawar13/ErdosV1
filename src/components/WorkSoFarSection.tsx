@@ -14,14 +14,14 @@ function PaperCard({ paper }: { paper: typeof papers[0] }) {
       <h3 className="font-display text-xl text-white leading-[1.2] mb-5">
         {paper.title}
       </h3>
-      <p className="font-body font-light text-sm text-white/55 leading-relaxed">
+      <p className="font-body font-light text-sm text-white/55 leading-relaxed line-clamp-3 flex-1">
         {paper.abstract}
       </p>
 
       {/* Read More CTA */}
       <button
         onClick={() => window.open(paper.url, '_blank', 'noopener,noreferrer')}
-        className="mt-8 w-full bg-white text-black font-accent text-[9px] tracking-[0.28em] uppercase py-3 hover:bg-white/85 active:bg-white/70 transition-colors duration-200 flex items-center justify-center gap-2"
+        className="mt-auto pt-6 w-full bg-white text-black font-accent text-[9px] tracking-[0.28em] uppercase py-3 hover:bg-white/85 active:bg-white/70 transition-colors duration-200 flex items-center justify-center gap-2"
         style={{ borderRadius: 0 }}
       >
         Read Paper
