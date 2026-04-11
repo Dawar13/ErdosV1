@@ -10,8 +10,8 @@ const logos = [
   { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/9.png', alt: 'Partner 9' },
 ]
 
-// Duplicate for seamless infinite loop
-const doubled = [...logos, ...logos]
+// Triple for seamless infinite loop with no visible gap
+const tripled = [...logos, ...logos, ...logos]
 
 export default function LogoCarousel() {
   return (
@@ -50,7 +50,7 @@ export default function LogoCarousel() {
       <div className="relative w-full overflow-hidden">
         {/* Scrolling row */}
         <div className="flex items-center gap-16 carousel-track">
-          {doubled.map((logo, i) => (
+          {tripled.map((logo, i) => (
             <div key={i} className="flex-shrink-0 flex items-center justify-center" style={{ height: '86px' }}>
               <img
                 src={logo.src}
