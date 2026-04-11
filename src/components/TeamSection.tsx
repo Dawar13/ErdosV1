@@ -64,7 +64,7 @@ const teamRow2 = [
     name: 'Hitesh Meena',
     role: 'Computational Biologist',
     affiliation: 'IIT Bombay',
-    bio: 'JEE Advanced AIR-99. Among the youngest computational biology researchers at IIT Bombay — spanning genomics, proteomics, and structural biology. Led iGEM IITB wetlab to Silver in Paris.',
+    bio: 'JEE Advanced AIR-99. Among the youngest computational biology researchers at IIT Bombay - spanning genomics, proteomics, and structural biology. Led iGEM IITB wetlab to Silver in Paris.',
     image: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/hitesh%20(3).png',
   },
   {
@@ -122,7 +122,7 @@ export default function TeamSection() {
         Meet the Team
       </m.h2>
 
-      {/* Row 1 — 5 founding researchers */}
+      {/* Row 1 - 5 founding researchers */}
       <m.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -135,7 +135,7 @@ export default function TeamSection() {
         ))}
       </m.div>
 
-      {/* Row 2 — 4 founding researchers */}
+      {/* Row 2 - 5 founding researchers */}
       <m.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

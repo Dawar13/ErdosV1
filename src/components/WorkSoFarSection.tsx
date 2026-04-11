@@ -6,22 +6,22 @@ function PaperCard({ paper }: { paper: typeof papers[0] }) {
   return (
     <div
       className="liquid-glass rounded-2xl flex flex-col shrink-0"
-      style={{ width: 'min(420px, 85vw)', padding: '2rem 2.5rem' }}
+      style={{ width: 'min(380px, 80vw)', padding: '1.5rem 2rem' }}
     >
-      <p className="font-accent text-[9px] tracking-[0.3em] uppercase text-white/25 mb-5">
+      <p className="font-accent text-[9px] tracking-[0.3em] uppercase text-white/50 mb-5">
         0{paper.id}
       </p>
       <h3 className="font-display text-xl text-white leading-[1.2] mb-5">
         {paper.title}
       </h3>
-      <p className="font-body font-light text-sm text-white/55 leading-relaxed line-clamp-6 flex-1">
+      <p className="font-body font-light text-sm text-white/75 leading-relaxed line-clamp-6">
         {paper.abstract}
       </p>
 
       {/* Read More CTA */}
       <button
         onClick={() => window.open(paper.url, '_blank', 'noopener,noreferrer')}
-        className="mt-auto pt-6 w-full bg-white text-black font-accent text-[9px] tracking-[0.28em] uppercase py-3 hover:bg-white/85 active:bg-white/70 transition-colors duration-200 flex items-center justify-center gap-2"
+        className="mt-8 w-full bg-white text-black font-accent text-[9px] tracking-[0.28em] uppercase py-3 hover:bg-white/85 active:bg-white/70 transition-colors duration-200 flex items-center justify-center gap-2"
         style={{ borderRadius: 0 }}
       >
         Read Paper
@@ -89,7 +89,7 @@ export default function WorkSoFarSection() {
         />
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 gap-4 md:gap-6 pb-16 pt-28 md:pt-8">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 gap-4 md:gap-8 pb-12 pt-24 md:pt-0">
           <h2
             className="font-display font-normal text-white tracking-[-0.04em] leading-none text-center"
             style={{ fontSize: 'clamp(1.8rem, 5vw, 5.5rem)' }}
@@ -101,7 +101,7 @@ export default function WorkSoFarSection() {
           <div className="flex justify-center w-full">
             <m.div
               ref={rowRef}
-              className="flex flex-row gap-4 items-stretch"
+              className="flex flex-row gap-8 items-stretch"
               style={{ x, willChange: 'transform' }}
             >
               {papers.map((paper) => (
