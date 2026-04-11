@@ -55,7 +55,7 @@ const teamRow2 = [
   },
   {
     name: 'Nilesh Sarkar',
-    role: 'LLM Researcher',
+    role: 'AI Researcher',
     affiliation: 'Ex Moog Inc',
     bio: 'Researching and deploying large language models in high-stakes applied engineering environments.',
     image: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Nilesh.png',
