@@ -8,6 +8,8 @@ const logos = [
   { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/7.png', alt: 'Partner 7' },
   { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/8.png', alt: 'Partner 8' },
   { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/9.png', alt: 'Partner 9' },
+  { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Intel%20Logo.png', alt: 'Intel' },
+  { src: 'https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Cisco%20Logo.png', alt: 'Cisco' },
 ]
 
 // Triple for seamless infinite loop with no visible gap
