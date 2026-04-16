@@ -1,15 +1,17 @@
 import { useRef, useState, useEffect } from 'react'
 import { m, useScroll, useTransform } from 'framer-motion'
 import { papers } from '../data/papers'
+import type { Paper } from '../data/papers'
 
-function PaperCard({ paper }: { paper: typeof papers[0] }) {
+function Card({ paper }: { paper: Paper }) {
+  const isProject = paper.type === 'project'
   return (
     <div
       className="liquid-glass rounded-2xl flex flex-col shrink-0"
       style={{ width: 'min(380px, 80vw)', padding: '1.5rem 2rem' }}
     >
       <p className="font-accent text-[9px] tracking-[0.3em] uppercase text-white/50 mb-5">
-        0{paper.id}
+        {String(paper.id).padStart(2, '0')} — {isProject ? 'Project' : 'Paper'}
       </p>
       <h3 className="font-display text-xl text-white leading-[1.2] mb-5">
         {paper.title}
@@ -18,27 +20,14 @@ function PaperCard({ paper }: { paper: typeof papers[0] }) {
         {paper.abstract}
       </p>
 
-      {/* Read More CTA */}
       <button
         onClick={() => window.open(paper.url, '_blank', 'noopener,noreferrer')}
         className="mt-8 w-full bg-white text-black font-accent text-[9px] tracking-[0.28em] uppercase py-3 hover:bg-white/85 active:bg-white/70 transition-colors duration-200 flex items-center justify-center gap-2"
         style={{ borderRadius: 0 }}
       >
-        Read Paper
-        <svg
-          width="12"
-          height="12"
-          viewBox="0 0 12 12"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M2 6h8M6 2l4 4-4 4"
-            stroke="currentColor"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+        {isProject ? 'View on GitHub' : 'Read Paper'}
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
     </div>
@@ -50,8 +39,7 @@ export default function WorkSoFarSection() {
   const rowRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: sectionRef })
 
-  // Measure one card step (card width + gap) so the math adapts to actual layout.
-  const [step, setStep] = useState(356) // fallback: 340px card + 16px gap
+  const [step, setStep] = useState(396) // fallback: 380px card + 16px gap
   useEffect(() => {
     const row = rowRef.current
     if (!row || row.children.length < 2) return
@@ -68,17 +56,17 @@ export default function WorkSoFarSection() {
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
-  // With justify-center on the parent, card 2 (middle) is at viewport center.
-  // Shift right by +step -> card 1 centered.
-  // Shift left  by -step -> card 3 centered.
-  const x = useTransform(scrollYProgress, [0, 1], [step, -step])
+  // With justify-center the middle card(s) start centered.
+  // For 6 cards: shift by 2.5 steps each direction so first and last end at center.
+  const half = (papers.length - 1) / 2
+  const x = useTransform(scrollYProgress, [0, 1], [half * step, -half * step])
 
   return (
     <section
       ref={sectionRef}
       className="relative bg-[#0a0a0a]"
-      style={{ height: '300vh' }}
-      id="papers"
+      style={{ height: `${200 + papers.length * 100}vh` }}
+      id="research"
     >
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
         {/* Full bleed image */}
@@ -105,7 +93,7 @@ export default function WorkSoFarSection() {
               style={{ x, willChange: 'transform' }}
             >
               {papers.map((paper) => (
-                <PaperCard key={paper.id} paper={paper} />
+                <Card key={paper.id} paper={paper} />
               ))}
             </m.div>
           </div>
