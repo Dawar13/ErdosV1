@@ -4,10 +4,19 @@ import App from './App'
 import './styles/globals.css'
 import posthog from 'posthog-js'
 
-posthog.init(import.meta.env.VITE_PUBLIC_POSTHOG_TOKEN, {
-  api_host: import.meta.env.VITE_PUBLIC_POSTHOG_HOST,
-  person_profiles: 'identified_only',
-})
+const phToken = import.meta.env.VITE_PUBLIC_POSTHOG_TOKEN
+const phHost = import.meta.env.VITE_PUBLIC_POSTHOG_HOST
+
+if (phToken) {
+  posthog.init(phToken, {
+    api_host: phHost || 'https://eu.i.posthog.com',
+    person_profiles: 'always',
+    capture_pageview: true,
+    capture_pageleave: true,
+  })
+} else {
+  console.warn('PostHog token missing — analytics disabled')
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
