@@ -41,7 +41,7 @@ export default function LogoCarousel() {
 
       {/* In collaboration with label */}
       <p className="font-display text-[10px] tracking-[0.3em] uppercase text-white/80 font-bold mt-1">
-        In collaboration with
+        Exploring with
       </p>
 
       {/* Carousel track */}
