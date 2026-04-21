@@ -20,7 +20,7 @@ export const papers: Paper[] = [
     title: 'Inference-Time Temporal Probability Smoothing for Stable Video Segmentation with SAM2 under Weak Prompts',
     abstract:
       'Interactive video segmentation models such as SAM2 have demonstrated strong generalization across diverse visual domains. However, under weak user supervision — for example, when sparse point prompts are provided on a single frame — their predictions often suffer from temporal instability, including flickering boundaries, object dropout, and inconsistent object extents across frames. These issues limit their reliability in downstream video understanding and control applications. In this paper, we propose an inference-time temporal probability smoothing method that improves the temporal stability of SAM2-based video segmentation without retraining or architectural modification.',
-    url: 'https://drive.google.com/file/d/1oHnA-2nhBlk7UiV99qGNmKQLf2lyrByA/view?usp=sharing',
+    url: 'https://arxiv.org/abs/2604.17115',
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ export const papers: Paper[] = [
     title: 'Prompt Sensitivity in Vision-Language Grounding: How Small Changes in Wording Affect Object Detection',
     abstract:
       'Vision-language models have enabled open-vocabulary object grounding, allowing natural language queries to localize objects in images without task-specific retraining. A commonly assumed property of such systems is prompt invariance: semantically equivalent language descriptions are expected to yield consistent grounded predictions. We examine this assumption empirically. Using a controlled grounding pipeline that combines a fixed object detector with a language-conditioned similarity model, we study how small variations in prompt wording affect grounding behavior.',
-    url: 'https://drive.google.com/file/d/1Go8kLjLv0CDl8s66SLvsJw9N-hrsS5Qz/view?usp=sharing',
+    url: 'https://arxiv.org/abs/2604.17126',
   },
   {
     id: 3,
