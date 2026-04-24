@@ -20,17 +20,9 @@ export default function LogoCarousel() {
           <div className="flex items-center gap-2">
             <img
               src="https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/EF%20logo.png"
-              alt="EF"
+              alt="Entrepreneur First"
               className="h-[28px] w-auto object-contain"
             />
-          </div>
-          <div className="flex items-center gap-2">
-            <img
-              src="https://erdos-ai-lab-media.s3.eu-north-1.amazonaws.com/Google%20logo.png"
-              alt="Google Research"
-              className="h-[28px] w-auto object-contain"
-            />
-            <span className="font-body text-[11px] text-white/70 font-medium tracking-wide">Research</span>
           </div>
         </div>
       </div>
